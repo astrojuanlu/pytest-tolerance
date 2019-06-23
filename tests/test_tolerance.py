@@ -4,6 +4,8 @@ def test_bar_fixture(testdir):
     # create a temporary pytest test module
     testdir.makepyfile(
         """
+        import pytest
+        @pytest.mark.tolerance()
         def test_sth(tolerance):
             assert 1e-7 < tolerance
     """
