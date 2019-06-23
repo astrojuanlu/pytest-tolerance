@@ -20,22 +20,12 @@ pytest-tolerance
 
 pytest plugin to optimize comparison tolerances
 
+**Work in progress**
+
 ----
 
-This `pytest`_ plugin was generated with `Cookiecutter`_ along with `@hackebrot`_'s `cookiecutter-pytest-plugin`_ template.
-
-
-Features
---------
-
-* TODO
-
-
-Requirements
-------------
-
-* TODO
-
+This `pytest`_ plugin was generated with `Cookiecutter`_
+along with `@hackebrot`_'s `cookiecutter-pytest-plugin`_ template.
 
 Installation
 ------------
@@ -44,11 +34,20 @@ You can install "pytest-tolerance" via `pip`_ from `PyPI`_::
 
     $ pip install pytest-tolerance
 
-
 Usage
 -----
 
-* TODO
+Mark your tests and use the :code:`tolerance` fixture::
+
+  import pytest
+  @pytest.mark.tolerance(min_exponent=-10)
+  def test_sth(tolerance):
+      assert 1e-7 < tolerance
+
+And the test will be re-run until the tolerance check is met.
+
+It can be combined with :code:`pytest.approx`, :code:`numpy.testing.assert_almost_equal`
+and similar.
 
 Contributing
 ------------
@@ -60,7 +59,6 @@ License
 
 Distributed under the terms of the `MIT`_ license, "pytest-tolerance" is free and open source software
 
-
 Issues
 ------
 
@@ -69,9 +67,6 @@ If you encounter any problems, please `file an issue`_ along with a detailed des
 .. _`Cookiecutter`: https://github.com/audreyr/cookiecutter
 .. _`@hackebrot`: https://github.com/hackebrot
 .. _`MIT`: http://opensource.org/licenses/MIT
-.. _`BSD-3`: http://opensource.org/licenses/BSD-3-Clause
-.. _`GNU GPL v3.0`: http://www.gnu.org/licenses/gpl-3.0.txt
-.. _`Apache Software License 2.0`: http://www.apache.org/licenses/LICENSE-2.0
 .. _`cookiecutter-pytest-plugin`: https://github.com/pytest-dev/cookiecutter-pytest-plugin
 .. _`file an issue`: https://github.com/Juanlu001/pytest-tolerance/issues
 .. _`pytest`: https://github.com/pytest-dev/pytest
