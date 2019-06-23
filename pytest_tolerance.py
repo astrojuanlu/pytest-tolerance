@@ -17,7 +17,7 @@ from _pytest.runner import runtestprotocol
 def pytest_configure(config):
     """Add tolerance marker."""
     config.addinivalue_line(
-        "markers", "tolerance(): mark test to try tolerance values."
+        "markers", "tolerance: mark test to try tolerance values."
     )
 
 
@@ -127,7 +127,7 @@ class ToleranceFixture:
             value = float(10 ** self._last_exponent)
 
         self._num_calls += 1
-        print(value)
+        print("Tolerance: {}".format(value))
         return value
 
     def set_last_failed(self, last_failed):
